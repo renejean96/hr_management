@@ -14,34 +14,36 @@
               <img src="@/assets/sign_up_svg.svg" alt="Sign Up Illustration" class="signup-svg" />
             </a-col>
             <a-col :span="12" class="signup-form-col">
-              <div class="signup-tabs-row">
-                <span class="signup-tab" @click="$router.push('/login')">Login</span>
-                <span class="signup-tab active">Sign Up</span>
-              </div>
-              <a-form layout="vertical" @submit.prevent="onSignup" class="signup-form-fields">
-                <a-form-item label="First Name">
-                  <a-input v-model:value="firstName" placeholder="First Name" size="large" class="signup-input" />
-                </a-form-item>
-                <a-form-item label="Last Name">
-                  <a-input v-model:value="lastName" placeholder="Last Name" size="large" class="signup-input" />
-                </a-form-item>
-                <a-form-item label="Email">
-                  <a-input v-model:value="email" placeholder="Email" size="large" class="signup-input" />
-                </a-form-item>
-                <a-form-item label="Password">
-                  <a-input-password v-model:value="password" placeholder="Password" size="large" class="signup-input" />
-                </a-form-item>
-                <a-form-item label="Re-enter Password">
-                  <a-input-password v-model:value="confirmPassword" placeholder="Re-enter Password" size="large" class="signup-input" />
-                </a-form-item>
-                <div class="signup-btns">
-                  <a-button type="primary" block class="signup-btn" size="large" @click="onSignup">Sign Up</a-button>
-                  <a-button block size="large" class="google-btn">
-                    <img src="@/assets/google_icon.png" alt="Google" class="google-icon" />
-                    Sign Up with Google
-                  </a-button>
+              <div class="signup-form-wrapper">
+                <div class="signup-tabs-row">
+                  <span class="signup-tab" @click="$router.push('/')">Login</span>
+                  <span class="signup-tab active">Sign Up</span>
                 </div>
-              </a-form>
+                <a-form layout="vertical" @submit.prevent="onSignup" class="signup-form-fields">
+                  <a-form-item>
+                    <a-input v-model:value="firstName" placeholder="First Name" size="large" class="signup-input" />
+                  </a-form-item>
+                  <a-form-item>
+                    <a-input v-model:value="lastName" placeholder="Last Name" size="large" class="signup-input" />
+                  </a-form-item>
+                  <a-form-item>
+                    <a-input v-model:value="email" placeholder="Email" size="large" class="signup-input" />
+                  </a-form-item>
+                  <a-form-item>
+                    <a-input-password v-model:value="password" placeholder="Password" size="large" class="signup-input" />
+                  </a-form-item>
+                  <a-form-item>
+                    <a-input-password v-model:value="confirmPassword" placeholder="Re-enter Password" size="large" class="signup-input" />
+                  </a-form-item>
+                  <div class="signup-btns">
+                    <a-button type="primary" block class="signup-btn" size="large" @click="onSignup">Sign Up</a-button>
+                    <a-button block size="large" class="google-btn">
+                      <img src="@/assets/google_icon.png" alt="Google" class="google-icon" />
+                      Sign Up with Google
+                    </a-button>
+                  </div>
+                </a-form>
+              </div>
             </a-col>
           </a-row>
         </a-card>
@@ -148,6 +150,16 @@ export default {
   justify-content: flex-start;
   padding-left: 32px;
   height: 100%;
+  align-items: center;
+}
+.signup-form-wrapper {
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 12px;
 }
 .signup-tabs-row {
   display: flex;
@@ -173,12 +185,14 @@ export default {
 }
 .signup-form-fields {
   width: 100%;
+  max-width: 340px;
 }
 .signup-btns {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-top: 8px;
+  width: 100%;
 }
 .signup-input {
   border-radius: 8px !important;
@@ -191,6 +205,7 @@ export default {
   color: #fff !important;
   font-weight: 600;
   border-radius: 8px;
+  width: 100%;
 }
 .signup-btn:hover {
   background: #e5941a !important;
@@ -205,6 +220,7 @@ export default {
   border: none !important;
   border-radius: 8px;
   font-weight: 600;
+  width: 100%;
 }
 .google-btn:hover {
   background: #2563eb !important;
