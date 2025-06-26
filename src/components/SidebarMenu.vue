@@ -25,13 +25,6 @@
 </template>
 
 <script>
-import {
-  HomeOutlined,
-  ProfileOutlined,
-  UserOutlined,
-  BarChartOutlined,
-  CalendarOutlined
-} from '@ant-design/icons-vue';
 
 export default {
   name: 'SidebarMenu',
@@ -41,13 +34,6 @@ export default {
       default: 'home'
     }
   },
-  components: {
-    HomeOutlined,
-    ProfileOutlined,
-    UserOutlined,
-    BarChartOutlined,
-    CalendarOutlined
-  }
 }
 </script>
 
