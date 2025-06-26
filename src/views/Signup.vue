@@ -37,9 +37,7 @@
                 <div class="signup-btns">
                   <a-button type="primary" block class="signup-btn" size="large" @click="onSignup">Sign Up</a-button>
                   <a-button block size="large" class="google-btn">
-                    <template #icon>
-                      <svg width="20" height="20" viewBox="0 0 48 48"><g><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.7 33.9 29.8 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.2 5.5 29.4 3.5 24 3.5c-6.6 0-12.2 2.7-16.1 7.1z"/><path fill="#34A853" d="M6.3 14.1l7 5.1C15.5 16.1 19.4 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.2 5.5 29.4 3.5 24 3.5c-6.6 0-12.2 2.7-16.1 7.1z"/><path fill="#FBBC05" d="M24 44.5c5.8 0 10.7-1.9 14.2-5.2l-6.6-5.4c-2 1.5-4.7 2.4-7.6 2.4-5.8 0-10.7-3.9-12.4-9.1l-7 5.4C7.8 41.1 15.3 44.5 24 44.5z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-1.1 3.1-4.1 6.5-11.7 6.5-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.2 5.5 29.4 3.5 24 3.5c-11.3 0-20.5 9.2-20.5 20.5 0-1.4-.1-2.7-.3-4z"/></g></svg>
-                    </template>
+                    <img src="@/assets/google_icon.png" alt="Google" class="google-icon" />
                     Sign Up with Google
                   </a-button>
                 </div>
@@ -210,6 +208,11 @@ export default {
 }
 .google-btn:hover {
   background: #2563eb !important;
+}
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 .signup-footer {
   margin-top: 32px;

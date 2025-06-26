@@ -2,10 +2,18 @@
   <a-layout-header class="main-header">
     <div class="main-header-inner">
       <a-input-search placeholder="Search" class="search-bar" />
-      <div class="header-profile">
-        <a-avatar class="header-avatar">JD</a-avatar>
-        <a-typography-text class="header-username">Jane Doe</a-typography-text>
-      </div>
+      <a-dropdown placement="bottomRight" trigger="['click']">
+        <div class="header-profile" style="cursor:pointer;">
+          <a-avatar class="header-avatar">JD</a-avatar>
+          <a-typography-text class="header-username">{{ username }}</a-typography-text>
+        </div>
+        <template #overlay>
+          <a-menu>
+            <a-menu-item key="profile">Profile</a-menu-item>
+            <a-menu-item key="logout" @click="logout">Logout</a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
     </div>
   </a-layout-header>
 </template>
@@ -17,6 +25,11 @@ export default {
     username: {
       type: String,
       default: 'Jane Doe'
+    }
+  },
+  methods: {
+    logout() {
+      this.$router.push('/');
     }
   }
 }
