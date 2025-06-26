@@ -3,20 +3,20 @@
     <div class="sidebar-logo">
       <img src="@/assets/dash_board_logo_svg.svg" alt="Logo" class="sidebar-logo-img" />
     </div>
-    <a-menu mode="inline"  @click="$emit('menuClick', $event)" class="sidebar-menu">
-      <a-menu-item key="home" class="sidebar-menu-item">
+    <a-menu mode="inline" @click="onMenuClick" :selectedKeys="[selectedMenu]" class="sidebar-menu">
+      <a-menu-item key="home" :class="{'sidebar-menu-item': true, 'active': selectedMenu === 'home'}">
         <img src="@/assets/home_svg.svg" alt="Home" class="sidebar-icon" />
       </a-menu-item>
-      <a-menu-item key="jobs" class="sidebar-menu-item">
+      <a-menu-item key="jobs" :class="{'sidebar-menu-item': true, 'active': selectedMenu === 'jobs'}">
         <img src="@/assets/jobs_svg.svg" alt="Jobs" class="sidebar-icon" />
       </a-menu-item>
-      <a-menu-item key="candidates" class="sidebar-menu-item">
+      <a-menu-item key="candidates" :class="{'sidebar-menu-item': true, 'active': selectedMenu === 'candidates'}">
         <img src="@/assets/candidate_svg.svg" alt="Candidates" class="sidebar-icon" />
       </a-menu-item>
-      <a-menu-item key="reports" class="sidebar-menu-item">
+      <a-menu-item key="reports" :class="{'sidebar-menu-item': true, 'active': selectedMenu === 'reports'}">
         <img src="@/assets/reports_svg.svg" alt="Reports" class="sidebar-icon" />
       </a-menu-item>
-      <a-menu-item key="calendar" class="sidebar-menu-item">
+      <a-menu-item key="calendar" :class="{'sidebar-menu-item': true, 'active': selectedMenu === 'calendar'}">
         <img src="@/assets/calendar_svg.svg" alt="Calendar" class="sidebar-icon" />
       </a-menu-item>
       <slot />
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'SidebarMenu',
   props: {
@@ -34,6 +33,14 @@ export default {
       default: 'home'
     }
   },
+  methods: {
+    onMenuClick({ key }) {
+      if (key === 'home') this.$router.push('/home');
+      else if (key === 'candidates') this.$router.push('/candidate');
+      else this.$router.push('/home');
+      this.$emit('menuClick', key);
+    }
+  }
 }
 </script>
 
@@ -75,6 +82,13 @@ export default {
   margin-bottom: 20px !important;
   background: transparent !important;
   border: none !important;
+  position: relative;
+  border-left: 6px solid transparent;
+  transition: border-color 0.2s;
+}
+.sidebar-menu-item.active {
+  border-left: 6px solid #FFA726 !important;
+  background: transparent !important;
 }
 .sidebar-menu-item .ant-menu-title-content {
   display: none;
@@ -91,7 +105,7 @@ export default {
 }
 .ant-menu-item-selected {
   background: transparent !important;
-  border-right: 4px solid #FCA311 !important;
+  border-right: none !important;
 }
 .sidebar-menu-item .ant-menu-item {
   height: 100px !important;
